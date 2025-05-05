@@ -1,8 +1,13 @@
+
 import React from 'react';
 import { ArrowRight, Gift, Check, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const PricingSection = () => {
+  const handlePurchaseClick = () => {
+    window.open('https://chk.eduzz.com/1675587?_gl=1*1xk4m5e*_ga*MTM0ODg4MDQ5MS4xNzQxMTk2MjQ0*_ga_VL84B9WQ6C*czE3NDY0NzQwNDQkbzQkZzAkdDE3NDY0NzQwNDQkajAkbDAkaDA', '_blank');
+  };
+
   return (
     <section id="pricing" className="py-24 md:py-32 relative overflow-hidden bg-gradient-to-b from-purple/10 via-purple/20 to-purple/5">
       {/* Elementos decorativos */}
@@ -128,14 +133,17 @@ const PricingSection = () => {
                   ))}
                 </div>
                 
-                {/* Botão com animação */}
+                {/* Botão com animação - Atualizado para abrir o link Eduzz */}
                 <motion.div
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
                   className="relative"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-purple-light via-purple to-purple-dark blur-md rounded-lg opacity-80"></div>
-                  <button className="relative bg-gradient-to-r from-purple-light via-purple to-purple-dark bg-size-200 animate-gradient-x text-white py-5 px-8 rounded-xl font-medium text-lg shadow-xl hover:shadow-purple/30 hover:shadow-lg transition-all duration-300 w-full flex items-center justify-center gap-3">
+                  <button 
+                    onClick={handlePurchaseClick}
+                    className="relative bg-gradient-to-r from-purple-light via-purple to-purple-dark bg-size-200 animate-gradient-x text-white py-5 px-8 rounded-xl font-medium text-lg shadow-xl hover:shadow-purple/30 hover:shadow-lg transition-all duration-300 w-full flex items-center justify-center gap-3"
+                  >
                     <span>Começar agora por R$14,94/mês</span>
                     <motion.div
                       animate={{ 
