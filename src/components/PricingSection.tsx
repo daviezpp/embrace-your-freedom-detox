@@ -70,7 +70,7 @@ const PricingSection = () => {
                   transition={{ delay: 0.3, duration: 0.5 }}
                 >
                   <span className="text-4xl md:text-6xl font-bold group-hover:scale-110 transition-transform duration-300 flex items-center gap-1">
-                    <span className="text-3xl font-normal">R$</span>14<span className="text-2xl">,94</span>
+                    <span className="text-3xl font-normal">R$</span>6<span className="text-2xl">,70</span>
                     <span className="text-xl font-light text-white/80 ml-1">/mês</span>
                   </span>
                 </motion.div>
@@ -81,7 +81,7 @@ const PricingSection = () => {
                   whileInView={{ opacity: 1 }}
                   transition={{ delay: 0.4 }}
                 >
-                  ou <span className="font-bold text-2xl">R$147,00</span> à vista
+                  ou <span className="font-bold text-2xl">R$67,00</span> à vista
                 </motion.p>
                 
                 <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-24 h-12 bg-white/10 blur-xl rounded-full"></div>
@@ -144,7 +144,7 @@ const PricingSection = () => {
                     onClick={handlePurchaseClick}
                     className="relative bg-gradient-to-r from-purple-light via-purple to-purple-dark bg-size-200 animate-gradient-x text-white py-5 px-8 rounded-xl font-medium text-lg shadow-xl hover:shadow-purple/30 hover:shadow-lg transition-all duration-300 w-full flex items-center justify-center gap-3"
                   >
-                    <span>Começar agora por R$14,94/mês</span>
+                    <span>Começar agora por 12x de R$6,70</span>
                     <motion.div
                       animate={{ 
                         x: [0, 5, 0],
