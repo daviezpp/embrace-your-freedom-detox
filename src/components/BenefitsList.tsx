@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { Check, Sparkles, Lightbulb, Key, ShieldCheck, Gauge, Rocket } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { scrollToPricing } from '@/utils/scrollUtils';
 
 // Map icons to replace emojis with 3D-like icons
 const iconMap = {
@@ -146,7 +146,10 @@ const BenefitsList = () => {
               transition={{ delay: 0.8, duration: 0.5 }}
               className="mt-16 text-center"
             >
-              <button className="bg-gradient-to-r from-purple-light via-purple to-purple-dark bg-size-200 animate-gradient-x text-white transition-all duration-300 py-4 px-10 rounded-xl font-medium text-lg shadow-xl hover:shadow-purple/30 hover:shadow-lg transform hover:translate-y-[-5px] group">
+              <button 
+                onClick={scrollToPricing}
+                className="bg-gradient-to-r from-purple-light via-purple to-purple-dark bg-size-200 animate-gradient-x text-white transition-all duration-300 py-4 px-10 rounded-xl font-medium text-lg shadow-xl hover:shadow-purple/30 hover:shadow-lg transform hover:translate-y-[-5px] group"
+              >
                 <span className="flex items-center gap-2">
                   Quero começar agora
                   <Sparkles className="w-5 h-5 group-hover:animate-pulse" />

@@ -2,6 +2,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { scrollToPricing } from '@/utils/scrollUtils';
 
 const HeroSection = () => {
   return (
@@ -28,6 +29,7 @@ const HeroSection = () => {
           </p>
           
           <Button 
+            onClick={scrollToPricing}
             className="mx-auto text-lg font-medium px-8 py-6 rounded-md bg-gradient-to-r from-purple-light via-purple to-purple-light bg-size-200 animate-gradient-x hover:scale-105 transition-all duration-300 shadow-lg"
           >
             Começar meu Detox agora

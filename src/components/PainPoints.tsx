@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import { HeartCrack, HandHeart, LockOpen } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { scrollToPricing } from '@/utils/scrollUtils';
 
 const PainPoints = () => {
   const contentRef = useRef<HTMLDivElement>(null);
@@ -87,6 +88,7 @@ const PainPoints = () => {
             </div>
             
             <Button 
+              onClick={scrollToPricing}
               className="group bg-white/20 hover:bg-white/30 border border-white/30 text-white px-8 py-6 rounded-xl text-lg font-medium transition-all duration-300"
             >
               <LockOpen className="w-5 h-5 mr-2 transition-transform duration-300 group-hover:rotate-12" />

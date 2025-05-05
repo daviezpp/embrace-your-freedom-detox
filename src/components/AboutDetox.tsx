@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { scrollToPricing } from '@/utils/scrollUtils';
 
 const AboutDetox = () => {
   return (
@@ -78,7 +78,10 @@ const AboutDetox = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <button className="bg-gradient-to-r from-purple-light via-purple to-purple-dark bg-size-200 animate-gradient-x text-white transition-all duration-300 py-4 px-8 rounded-md flex items-center gap-2 mx-auto font-medium text-lg shadow-xl hover:shadow-purple/30 hover:shadow-lg">
+            <button 
+              onClick={scrollToPricing}
+              className="bg-gradient-to-r from-purple-light via-purple to-purple-dark bg-size-200 animate-gradient-x text-white transition-all duration-300 py-4 px-8 rounded-md flex items-center gap-2 mx-auto font-medium text-lg shadow-xl hover:shadow-purple/30 hover:shadow-lg"
+            >
               Quero viver essa transformação
               <ArrowRight className="w-5 h-5 animate-pulse" />
             </button>
