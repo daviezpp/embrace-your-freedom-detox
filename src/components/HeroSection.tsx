@@ -11,8 +11,8 @@ const HeroSection = () => {
       {/* Background Image */}
       <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80)' }}></div>
       
-      {/* Overlay with Logo */}
-      <div className="absolute inset-0 bg-purple-dark/60 z-10 flex flex-col items-center">
+      {/* Overlay with Logo - Added backdrop blur effect */}
+      <div className="absolute inset-0 bg-purple-dark/30 backdrop-blur-md z-10 flex flex-col items-center">
         <img 
           src="/lovable-uploads/2f4d366e-bf85-46b0-be19-53216d65d766.png" 
           alt="Logo Tornar-me Eu" 
