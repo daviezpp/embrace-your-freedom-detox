@@ -60,11 +60,11 @@ const FinalCta = () => {
               <Card className="overflow-hidden rounded-2xl border-purple/20 shadow-xl max-w-sm mx-auto bg-white/80 backdrop-blur-sm">
                 <AspectRatio ratio={9/16} className="bg-muted relative overflow-hidden">
                   <img 
-                    src="/lovable-uploads/321cac09-eca1-448a-8e16-ede821477d6f.png" 
+                    src="/lovable-uploads/1e30ea91-7fdb-4528-a676-90daa6f428dd.png" 
                     alt="Elaine e Cris, fundadoras da Tornar-me Eu" 
                     className="object-cover w-full h-full rounded-2xl"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-purple-dark/50 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-purple-dark/30 to-transparent"></div>
                   
                   {/* Founder Avatars */}
                   <div className="absolute bottom-4 left-4 right-4 flex justify-center gap-4">
