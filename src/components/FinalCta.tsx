@@ -1,7 +1,118 @@
+
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { Avatar } from '@/components/ui/avatar';
+
 const FinalCta = () => {
-  return;
+  return (
+    <section className="relative py-20 overflow-hidden">
+      {/* Background with gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-purple-light/20 via-purple/10 to-white/5 z-0"></div>
+      
+      {/* Decorative elements */}
+      <div className="absolute top-0 right-0 w-64 h-64 bg-purple-light/10 rounded-full filter blur-[80px]"></div>
+      <div className="absolute bottom-0 left-0 w-72 h-72 bg-purple/10 rounded-full filter blur-[100px]"></div>
+      
+      <div className="container mx-auto px-4 md:px-8 relative z-10">
+        <div className="max-w-5xl mx-auto">
+          {/* Highlight Title Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="text-center mb-16"
+          >
+            <h2 className="inline-block text-3xl md:text-4xl lg:text-5xl font-playfair font-bold relative">
+              <span className="bg-gradient-to-r from-purple-light via-purple to-purple-dark bg-clip-text text-transparent">
+                Quem são Elaine e Cris?
+              </span>
+              <motion.span 
+                className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-purple-light to-purple-dark"
+                initial={{ width: 0 }}
+                whileInView={{ width: '100%' }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+              ></motion.span>
+            </h2>
+          </motion.div>
+          
+          {/* Content Grid */}
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Image with 9:16 aspect ratio */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="mx-auto md:order-1 order-2"
+            >
+              <Card className="overflow-hidden rounded-2xl border-purple/20 shadow-xl max-w-sm mx-auto bg-white/80 backdrop-blur-sm">
+                <AspectRatio ratio={9/16} className="bg-muted relative overflow-hidden">
+                  <img 
+                    src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&q=80" 
+                    alt="Elaine e Cris, fundadoras da Tornar-me Eu" 
+                    className="object-cover w-full h-full"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-purple-dark/50 to-transparent"></div>
+                  
+                  {/* Founder Avatars */}
+                  <div className="absolute bottom-4 left-4 right-4 flex justify-center gap-4">
+                    <Avatar className="w-12 h-12 border-2 border-white">
+                      <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80" alt="Elaine" />
+                    </Avatar>
+                    <Avatar className="w-12 h-12 border-2 border-white">
+                      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80" alt="Cris" />
+                    </Avatar>
+                  </div>
+                </AspectRatio>
+              </Card>
+            </motion.div>
+            
+            {/* Text Content */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="md:order-2 order-1"
+            >
+              <CardContent className="space-y-6 px-0">
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Elaine e Cris são terapeutas e mentoras com mais de 15 anos de experiência ajudando mulheres a se libertarem de relacionamentos tóxicos e reconectarem com sua essência.
+                </p>
+                
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Após perceberem um padrão recorrente de mulheres inteligentes e bem-sucedidas que se perdiam em ciclos de relacionamentos prejudiciais, elas desenvolveram o método <span className="font-medium text-purple-dark">Detox Emocional</span>, que já transformou a vida de mais de 3.000 mulheres.
+                </p>
+                
+                <p className="text-lg text-gray-700 leading-relaxed">
+                  Seu trabalho é baseado em uma abordagem integrativa que combina psicologia, neurociência e práticas de autoconhecimento, criando um caminho seguro para a recuperação da autoestima e independência emocional.
+                </p>
+                
+                <motion.div
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="pt-4"
+                >
+                  <Button 
+                    className="w-full md:w-auto bg-gradient-to-r from-purple-light via-purple to-purple-dark bg-size-200 animate-gradient-x shadow-md"
+                  >
+                    Comece sua jornada agora
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </Button>
+                </motion.div>
+              </CardContent>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
+
 export default FinalCta;
