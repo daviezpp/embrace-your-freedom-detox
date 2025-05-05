@@ -60,7 +60,7 @@ const FinalCta = () => {
               <Card className="overflow-hidden rounded-2xl border-purple/20 shadow-xl max-w-sm mx-auto bg-white/80 backdrop-blur-sm">
                 <AspectRatio ratio={9/16} className="bg-muted relative overflow-hidden">
                   <img 
-                    src="/lovable-uploads/1e30ea91-7fdb-4528-a676-90daa6f428dd.png" 
+                    src="/lovable-uploads/901a5a4a-26a2-47d0-b46b-3e19702fd7df.png" 
                     alt="Elaine e Cris, fundadoras da Tornar-me Eu" 
                     className="object-cover w-full h-full rounded-2xl"
                   />
@@ -93,7 +93,7 @@ const FinalCta = () => {
                 </p>
                 
                 <p className="text-lg text-gray-700 leading-relaxed">
-                  Após perceberem um padrão recorrente de mulheres inteligentes e bem-sucedidas que se perdiam em ciclos de relacionamentos prejudiciais, elas desenvolveram o método <span className="font-medium text-purple-dark">Detox Emocional</span>, que já transformou a vida de mais de 3.000 mulheres.
+                  Após perceberem um padrão recorrente de mulheres inteligentes e bem-sucedidas que se perdiam em ciclos de relacionamentos prejudiciais, elas desenvolveram o método <span className="font-medium text-purple-dark">Detox Sagrado</span>, que já transformou a vida de mais de 3.000 mulheres.
                 </p>
                 
                 <p className="text-lg text-gray-700 leading-relaxed">
