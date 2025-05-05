@@ -1,11 +1,12 @@
 
-import React from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { 
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
-  CarouselPrevious 
+  CarouselPrevious,
+  type CarouselApi
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
@@ -56,6 +57,33 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
+  const [api, setApi] = React.useState<CarouselApi>();
+
+  // Auto-play functionality
+  const autoPlay = useCallback(() => {
+    if (!api) return;
+
+    // Scroll to next slide every 5 seconds
+    const interval = setInterval(() => {
+      api.scrollNext();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [api]);
+
+  // Set up auto-play when api is available
+  useEffect(() => {
+    if (!api) return;
+    
+    // Start auto-play
+    const cleanup = autoPlay();
+    
+    // Clean up interval on unmount
+    return () => {
+      cleanup && cleanup();
+    };
+  }, [api, autoPlay]);
+
   return (
     <section className="py-16 md:py-24 bg-gradient-to-br from-purple-light/10 via-purple/5 to-nude/10">
       <div className="container mx-auto px-4 md:px-8">
@@ -73,9 +101,8 @@ const Testimonials = () => {
             opts={{
               align: "start",
               loop: true,
-              autoplay: true,
-              interval: 5000
             }}
+            setApi={setApi}
             className="w-full"
           >
             <CarouselContent className="-ml-4">
