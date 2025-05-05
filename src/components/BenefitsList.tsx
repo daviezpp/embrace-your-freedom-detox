@@ -89,8 +89,21 @@ const BenefitsList = () => {
           viewport={{ once: true, margin: "-50px" }}
           className="max-w-4xl mx-auto"
         >
-          <div className="bg-white/80 backdrop-blur-md rounded-2xl shadow-xl p-8 md:p-12 border border-purple/10 transform hover:shadow-2xl transition-all duration-500">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Redesigned container */}
+          <div className="bg-gradient-to-br from-white/90 to-purple/5 backdrop-blur-lg rounded-3xl shadow-2xl border border-purple/20 p-10 md:p-14 relative overflow-hidden">
+            {/* Glass-like decorative elements */}
+            <div className="absolute -top-20 -right-20 w-64 h-64 bg-purple/10 rounded-full blur-3xl"></div>
+            <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-purple-light/10 rounded-full blur-3xl"></div>
+            
+            {/* Subtle pattern overlay */}
+            <div className="absolute inset-0 opacity-5 mix-blend-overlay"
+                 style={{
+                   backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+                   backgroundSize: '30px 30px'
+                 }}
+            ></div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
               {benefits.map((benefit, index) => {
                 const IconComponent = iconMap[benefit.id];
                 
@@ -100,21 +113,20 @@ const BenefitsList = () => {
                     variants={itemVariants}
                     className="relative"
                   >
-                    {/* Modern 3D-like benefit card */}
-                    <div className="bg-gradient-to-br from-white to-purple/5 rounded-xl p-6 shadow-lg border border-purple/10 h-full relative z-10 overflow-hidden group hover:shadow-xl transition-all duration-300">
+                    {/* Modernized benefit card with frosted glass effect */}
+                    <div className="bg-white/30 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/40 h-full relative z-10 overflow-hidden group hover:translate-y-[-5px] transition-all duration-500 hover:shadow-purple/20 hover:shadow-xl">
+                      {/* Animated gradient background on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-purple/5 to-purple/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"></div>
                       
-                      {/* Background blur effect */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/60 to-purple/10 backdrop-blur-sm opacity-70 z-0"></div>
-                      
-                      {/* 3D Icon with gradient backdrop */}
-                      <div className="relative z-20 mb-4">
-                        <div className={`absolute -top-2 -left-2 w-16 h-16 bg-gradient-to-br ${benefit.color} rounded-lg opacity-20 blur-lg group-hover:opacity-30 transition-opacity duration-300`}></div>
-                        <div className={`flex items-center justify-center w-14 h-14 bg-gradient-to-br ${benefit.color} rounded-lg shadow-lg transform group-hover:scale-110 transition-transform duration-300`}>
+                      {/* Dynamic 3D Icon */}
+                      <div className="relative z-20 mb-4 group-hover:scale-110 transition-transform duration-300 transform-gpu">
+                        <div className={`absolute -inset-1 bg-gradient-to-br ${benefit.color} rounded-xl opacity-20 blur-xl group-hover:opacity-40 transition-opacity duration-300`}></div>
+                        <div className={`flex items-center justify-center w-14 h-14 bg-gradient-to-br ${benefit.color} rounded-xl shadow-lg transform-gpu`}>
                           <IconComponent className="w-7 h-7 text-white drop-shadow-md" />
                         </div>
                       </div>
                       
-                      {/* Text content */}
+                      {/* Text content with improved typography */}
                       <p className="text-lg md:text-xl font-medium text-gray-800 leading-relaxed relative z-20 mt-2 group-hover:text-purple-dark transition-colors duration-300">
                         {benefit.text.includes("(") 
                           ? benefit.text.split("(").map((part, i) => 
@@ -126,11 +138,11 @@ const BenefitsList = () => {
                         }
                       </p>
                       
-                      {/* Overlapping check element */}
-                      <div className="absolute -bottom-3 -right-3 w-10 h-10 z-30">
-                        <div className="absolute inset-0 bg-white rounded-full blur-sm"></div>
-                        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-purple to-purple-dark rounded-full shadow-lg border border-white">
-                          <Check className="w-5 h-5 text-white" />
+                      {/* Redesigned check element */}
+                      <div className="absolute -bottom-3 -right-3 w-12 h-12 z-30 transition-transform duration-300 group-hover:scale-110">
+                        <div className="absolute inset-0 bg-white/80 rounded-full blur-md"></div>
+                        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-purple-light via-purple to-purple-dark rounded-full shadow-lg border-2 border-white">
+                          <Check className="w-6 h-6 text-white" />
                         </div>
                       </div>
                     </div>
