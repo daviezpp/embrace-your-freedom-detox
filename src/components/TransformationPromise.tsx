@@ -1,6 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { Heart, Search, Smile, Sparkles, Leaf } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const transformationItems = [
   { 
@@ -63,23 +64,99 @@ const TransformationPromise = () => {
           <span className="relative inline-block mt-4 after:content-[''] after:absolute after:w-24 after:h-1 after:bg-purple after:bottom-[-12px] after:left-1/2 after:-translate-x-1/2"></span>
         </h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
-          {transformationItems.map((item, index) => (
-            <div 
-              key={index}
-              ref={el => itemsRef.current[index] = el}
-              className="transform transition-all duration-300 hover:-translate-y-2 p-8 bg-white/90 rounded-xl shadow-[0_10px_20px_rgba(126,105,171,0.1)] hover:shadow-[0_15px_30px_rgba(126,105,171,0.2)] backdrop-blur-sm"
-            >
-              <div className="flex flex-col items-center text-center">
-                <div className="mb-5 p-4 bg-nude-light rounded-full flex items-center justify-center shadow-inner animate-pulse">
-                  {item.icon}
-                </div>
-                <h3 className="text-xl font-bold text-purple-dark mb-2">{item.title}</h3>
-                <p className="text-gray-600">{item.text}</p>
-              </div>
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="max-w-6xl mx-auto"
+        >
+          {/* Hexagon-like layout for odd number of cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            {/* Top row - 2 cards */}
+            <div className="md:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 md:px-16 mb-6 md:mb-8">
+              {transformationItems.slice(0, 2).map((item, index) => (
+                <motion.div 
+                  key={index}
+                  ref={el => itemsRef.current[index] = el}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="transform transition-all duration-300 hover:-translate-y-2 hover:rotate-1 p-6 md:p-8 bg-white/90 rounded-2xl shadow-[0_10px_20px_rgba(126,105,171,0.1)] hover:shadow-[0_15px_30px_rgba(126,105,171,0.2)] backdrop-blur-sm border border-purple/5"
+                >
+                  <div className="flex flex-col items-center text-center">
+                    <div className="mb-5 p-4 bg-nude-light rounded-full flex items-center justify-center shadow-inner">
+                      <motion.div
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      >
+                        {item.icon}
+                      </motion.div>
+                    </div>
+                    <h3 className="text-xl font-bold text-purple-dark mb-2">{item.title}</h3>
+                    <p className="text-gray-600">{item.text}</p>
+                  </div>
+                </motion.div>
+              ))}
             </div>
-          ))}
-        </div>
+            
+            {/* Middle row - 1 card (center feature) */}
+            <div className="md:col-span-3 flex justify-center mb-6 md:mb-8">
+              <motion.div 
+                key={2}
+                ref={el => itemsRef.current[2] = el}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+                viewport={{ once: true }}
+                className="transform transition-all duration-300 hover:-translate-y-2 hover:rotate-1 p-6 md:p-8 bg-white/90 rounded-2xl shadow-[0_10px_20px_rgba(126,105,171,0.15)] hover:shadow-[0_20px_40px_rgba(126,105,171,0.25)] backdrop-blur-sm border border-purple/10 md:w-2/3"
+              >
+                <div className="flex flex-col items-center text-center">
+                  <div className="mb-5 p-5 bg-nude rounded-full flex items-center justify-center shadow-inner">
+                    <motion.div
+                      whileHover={{ scale: 1.2, rotate: 5 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      className="text-purple"
+                    >
+                      {transformationItems[2].icon}
+                    </motion.div>
+                  </div>
+                  <h3 className="text-2xl font-bold text-purple-dark mb-2">{transformationItems[2].title}</h3>
+                  <p className="text-gray-600 text-lg">{transformationItems[2].text}</p>
+                </div>
+              </motion.div>
+            </div>
+            
+            {/* Bottom row - 2 cards */}
+            <div className="md:col-span-3 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 md:px-16">
+              {transformationItems.slice(3, 5).map((item, index) => (
+                <motion.div 
+                  key={index + 3}
+                  ref={el => itemsRef.current[index + 3] = el}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: (index + 0.4) * 0.1 }}
+                  viewport={{ once: true }}
+                  className="transform transition-all duration-300 hover:-translate-y-2 hover:rotate-1 p-6 md:p-8 bg-white/90 rounded-2xl shadow-[0_10px_20px_rgba(126,105,171,0.1)] hover:shadow-[0_15px_30px_rgba(126,105,171,0.2)] backdrop-blur-sm border border-purple/5"
+                >
+                  <div className="flex flex-col items-center text-center">
+                    <div className="mb-5 p-4 bg-nude-light rounded-full flex items-center justify-center shadow-inner">
+                      <motion.div
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      >
+                        {item.icon}
+                      </motion.div>
+                    </div>
+                    <h3 className="text-xl font-bold text-purple-dark mb-2">{item.title}</h3>
+                    <p className="text-gray-600">{item.text}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </div>
       
       {/* Decorative elements */}
