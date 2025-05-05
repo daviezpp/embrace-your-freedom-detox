@@ -1,5 +1,6 @@
 
 import React, { useEffect } from 'react';
+import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import TransformationPromise from '@/components/TransformationPromise';
 import PainPoints from '@/components/PainPoints';
@@ -32,7 +33,8 @@ const Index = () => {
   }, []);
   
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen pt-20">
+      <Header />
       <HeroSection />
       <TransformationPromise />
       <PainPoints />
