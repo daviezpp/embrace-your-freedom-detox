@@ -57,13 +57,13 @@ const TransformationPromise = () => {
   return (
     <section className="py-24 bg-nude-light relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-8">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-playfair font-bold text-center text-purple-dark mb-16 relative">
-          <span className="relative inline-block after:content-[''] after:absolute after:w-24 after:h-1 after:bg-purple after:bottom-[-12px] after:left-1/2 after:-translate-x-1/2">
-            Você não está sozinha. Mas pode escolher sair desse lugar.
-          </span>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-playfair font-bold text-center mb-16">
+          <span className="text-purple-dark block">Você não está sozinha.</span>
+          <span className="text-purple text-2xl md:text-3xl lg:text-4xl mt-2 block">Mas pode escolher sair desse lugar.</span>
+          <span className="relative inline-block mt-4 after:content-[''] after:absolute after:w-24 after:h-1 after:bg-purple after:bottom-[-12px] after:left-1/2 after:-translate-x-1/2"></span>
         </h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
           {transformationItems.map((item, index) => (
             <div 
               key={index}
@@ -71,10 +71,10 @@ const TransformationPromise = () => {
               className="transform transition-all duration-300 hover:-translate-y-2 p-8 bg-white/90 rounded-xl shadow-[0_10px_20px_rgba(126,105,171,0.1)] hover:shadow-[0_15px_30px_rgba(126,105,171,0.2)] backdrop-blur-sm"
             >
               <div className="flex flex-col items-center text-center">
-                <div className="mb-4 p-3 bg-nude-light rounded-full flex items-center justify-center shadow-inner animate-pulse">
+                <div className="mb-5 p-4 bg-nude-light rounded-full flex items-center justify-center shadow-inner animate-pulse">
                   {item.icon}
                 </div>
-                <h3 className="text-xl font-bold text-purple-dark mb-1">{item.title}</h3>
+                <h3 className="text-xl font-bold text-purple-dark mb-2">{item.title}</h3>
                 <p className="text-gray-600">{item.text}</p>
               </div>
             </div>
