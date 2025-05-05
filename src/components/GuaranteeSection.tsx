@@ -2,22 +2,25 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ShieldCheck } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const GuaranteeSection = () => {
+  const isMobile = useIsMobile();
+  
   return (
     <motion.section 
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="py-16 md:py-24 relative overflow-hidden"
+      className="py-12 md:py-16 lg:py-24 relative overflow-hidden"
     >
       {/* Fundo com gradiente lilás */}
       <div className="absolute inset-0 bg-gradient-to-b from-purple/30 via-purple/20 to-purple/10 z-0"></div>
       
       {/* Elementos decorativos */}
-      <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-purple-light/20 filter blur-[80px]"></div>
-      <div className="absolute -bottom-24 -left-24 w-64 h-64 rounded-full bg-purple/20 filter blur-[80px]"></div>
+      <div className="absolute -top-24 -right-24 w-48 md:w-64 h-48 md:h-64 rounded-full bg-purple-light/20 filter blur-[80px]"></div>
+      <div className="absolute -bottom-24 -left-24 w-48 md:w-64 h-48 md:h-64 rounded-full bg-purple/20 filter blur-[80px]"></div>
       <div className="absolute w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTAwIDJhMiAyIDAgMCAxIDIgMnY5OGgyIDE5NnYyaC0yMDB2LTEwMmEyIDIgMCAwIDEgMi0yeiIgZmlsbD0iI2I2YWRkZSIgZmlsbC1vcGFjaXR5PSIwLjA1Ii8+PC9zdmc+')] opacity-30 z-0"></div>
       
       <div className="container mx-auto px-4 md:px-8 relative z-10">
@@ -27,11 +30,11 @@ const GuaranteeSection = () => {
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-white/90 backdrop-blur-md rounded-2xl shadow-xl border border-purple/20 p-8 md:p-10"
+            className="bg-white/90 backdrop-blur-md rounded-2xl shadow-xl border border-purple/20 p-6 md:p-8 lg:p-10"
           >
             {/* Ícone de garantia 3D */}
             <motion.div 
-              className="relative w-24 h-24 mx-auto mb-6"
+              className="relative w-16 h-16 md:w-24 md:h-24 mx-auto mb-4 md:mb-6"
               whileHover={{ 
                 scale: 1.05,
                 rotate: [0, 5, 0, -5, 0],
@@ -43,7 +46,7 @@ const GuaranteeSection = () => {
               <div className="relative bg-gradient-to-br from-purple-light to-purple rounded-full w-full h-full flex items-center justify-center shadow-lg overflow-hidden">
                 <div className="absolute inset-0 bg-white/20 rounded-full"></div>
                 <div className="absolute top-0 left-0 right-0 h-1/2 bg-white/20 rounded-t-full"></div>
-                <ShieldCheck className="w-12 h-12 text-white drop-shadow-md relative z-10" />
+                <ShieldCheck className="w-8 h-8 md:w-12 md:h-12 text-white drop-shadow-md relative z-10" />
               </div>
             </motion.div>
             
@@ -53,16 +56,16 @@ const GuaranteeSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-3xl md:text-4xl lg:text-5xl font-playfair font-bold text-center mb-8"
+              className="text-2xl md:text-3xl lg:text-4xl font-playfair font-bold text-center mb-6 md:mb-8"
             >
               <span className="bg-gradient-to-r from-purple-light via-purple to-purple-dark bg-clip-text text-transparent">
                 15 dias para se permitir
               </span>
               <br/>
-              <span className="relative inline-block">
+              <span className="relative inline-block mt-2">
                 <span className="relative z-10">Ou seu dinheiro de volta</span>
                 <motion.span 
-                  className="absolute bottom-1 left-0 right-0 h-3 bg-purple/20 -z-10 rounded-full"
+                  className="absolute bottom-1 left-0 right-0 h-2 md:h-3 bg-purple/20 -z-10 rounded-full"
                   initial={{ width: 0 }}
                   whileInView={{ width: '100%' }}
                   viewport={{ once: true }}
@@ -77,11 +80,11 @@ const GuaranteeSection = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="space-y-4 text-center"
+              className="space-y-3 md:space-y-4 text-center"
             >
-              <p className="text-xl text-gray-700">
+              <p className="text-lg md:text-xl text-gray-700">
                 Se após acessar o Detox você sentir que não é pra você, 
-                <br/><span className="font-medium text-purple-dark">é só pedir reembolso.</span>
+                {isMobile ? ' ' : <br/>}<span className="font-medium text-purple-dark">é só pedir reembolso.</span>
               </p>
               
               <motion.p 
@@ -89,7 +92,7 @@ const GuaranteeSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.6 }}
-                className="text-lg text-gray-600 italic"
+                className="text-base md:text-lg text-gray-600 italic"
               >
                 Sem julgamentos. Sem burocracia.
               </motion.p>
@@ -99,7 +102,7 @@ const GuaranteeSection = () => {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.8 }}
-                className="text-xl font-medium text-purple-dark pt-2"
+                className="text-lg md:text-xl font-medium text-purple-dark pt-1 md:pt-2"
               >
                 Você só continua se fizer sentido no seu coração.
               </motion.p>

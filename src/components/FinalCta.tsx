@@ -7,15 +7,18 @@ import { Card, CardContent } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Avatar } from '@/components/ui/avatar';
 import { scrollToPricing } from '@/utils/scrollUtils';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const FinalCta = () => {
+  const isMobile = useIsMobile();
+  
   const handleButtonClick = (e: React.MouseEvent) => {
     e.preventDefault();
     scrollToPricing();
   };
 
   return (
-    <section className="relative py-20 overflow-hidden">
+    <section className="relative py-16 md:py-20 overflow-hidden">
       {/* Background with gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-purple-light/20 via-purple/10 to-white/5 z-0"></div>
       
@@ -31,9 +34,9 @@ const FinalCta = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="text-center mb-16"
+            className="text-center mb-10 md:mb-16"
           >
-            <h2 className="inline-block text-3xl md:text-4xl lg:text-5xl font-playfair font-bold relative">
+            <h2 className="inline-block text-2xl md:text-3xl lg:text-5xl font-playfair font-bold relative">
               <span className="bg-gradient-to-r from-purple-light via-purple to-purple-dark bg-clip-text text-transparent">
                 Quem são Elaine e Cris?
               </span>
@@ -48,7 +51,7 @@ const FinalCta = () => {
           </motion.div>
           
           {/* Content Grid */}
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* Image with 9:16 aspect ratio */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -68,10 +71,10 @@ const FinalCta = () => {
                   
                   {/* Founder Avatars */}
                   <div className="absolute bottom-4 left-4 right-4 flex justify-center gap-4">
-                    <Avatar className="w-12 h-12 border-2 border-white">
+                    <Avatar className="w-10 md:w-12 h-10 md:h-12 border-2 border-white">
                       <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80" alt="Elaine" />
                     </Avatar>
-                    <Avatar className="w-12 h-12 border-2 border-white">
+                    <Avatar className="w-10 md:w-12 h-10 md:h-12 border-2 border-white">
                       <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80" alt="Cris" />
                     </Avatar>
                   </div>
@@ -87,16 +90,16 @@ const FinalCta = () => {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="md:order-2 order-1"
             >
-              <CardContent className="space-y-6 px-0">
-                <p className="text-lg text-gray-700 leading-relaxed">
+              <CardContent className="space-y-4 md:space-y-6 px-0">
+                <p className="text-base md:text-lg text-gray-700 leading-relaxed">
                   Elaine e Cris são terapeutas e mentoras com mais de 15 anos de experiência ajudando mulheres a se libertarem de relacionamentos tóxicos e reconectarem com sua essência.
                 </p>
                 
-                <p className="text-lg text-gray-700 leading-relaxed">
+                <p className="text-base md:text-lg text-gray-700 leading-relaxed">
                   Após perceberem um padrão recorrente de mulheres inteligentes e bem-sucedidas que se perdiam em ciclos de relacionamentos prejudiciais, elas desenvolveram o método <span className="font-medium text-purple-dark">Detox Sagrado</span>, que já transformou a vida de mais de 3.000 mulheres.
                 </p>
                 
-                <p className="text-lg text-gray-700 leading-relaxed">
+                <p className="text-base md:text-lg text-gray-700 leading-relaxed">
                   Seu trabalho é baseado em uma abordagem integrativa que combina psicologia, neurociência e práticas de autoconhecimento, criando um caminho seguro para a recuperação da autoestima e independência emocional.
                 </p>
                 
@@ -106,11 +109,11 @@ const FinalCta = () => {
                   className="pt-4"
                 >
                   <Button 
-                    className="w-full md:w-auto bg-gradient-to-r from-purple-light via-purple to-purple-dark bg-size-200 animate-gradient-x shadow-md final-cta-button"
+                    className="w-full md:w-auto bg-gradient-to-r from-purple-light via-purple to-purple-dark bg-size-200 animate-gradient-x shadow-md final-cta-button text-sm md:text-base"
                     onClick={handleButtonClick}
                   >
                     Comece sua jornada agora
-                    <ArrowRight className="ml-2 w-5 h-5" />
+                    <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5" />
                   </Button>
                 </motion.div>
               </CardContent>

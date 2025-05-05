@@ -12,6 +12,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { User } from "lucide-react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const testimonials = [
   {
@@ -57,6 +58,7 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
+  const isMobile = useIsMobile();
   const [api, setApi] = React.useState<CarouselApi>();
 
   // Auto-play functionality
@@ -85,18 +87,18 @@ const Testimonials = () => {
   }, [api, autoPlay]);
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-purple-light/10 via-purple/5 to-nude/10">
+    <section className="py-12 md:py-16 lg:py-24 bg-gradient-to-br from-purple-light/10 via-purple/5 to-nude/10">
       <div className="container mx-auto px-4 md:px-8">
-        <div className="text-center mb-12 md:mb-16 max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-playfair font-bold text-purple-dark mb-5 leading-tight">
+        <div className="text-center mb-8 md:mb-12 lg:mb-16 max-w-3xl mx-auto">
+          <h2 className="text-2xl md:text-3xl lg:text-5xl font-playfair font-bold text-purple-dark mb-3 md:mb-5 leading-tight">
             Histórias de <span className="text-purple italic">Transformação</span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-700">
+          <p className="text-base md:text-lg lg:text-xl text-gray-700">
             Mulheres reais que deram o primeiro passo para uma nova vida. Você também pode ser uma delas.
           </p>
         </div>
         
-        <div className="relative px-8 sm:px-12 md:px-16">
+        <div className="relative px-2 sm:px-8 md:px-12 lg:px-16">
           <Carousel
             opts={{
               align: "start",
@@ -105,14 +107,14 @@ const Testimonials = () => {
             setApi={setApi}
             className="w-full"
           >
-            <CarouselContent className="-ml-4">
+            <CarouselContent className="-ml-2 md:-ml-4">
               {testimonials.map((testimonial, index) => (
-                <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3 sm:basis-1/1">
                   <div className="h-full">
                     <Card className="h-full border-purple/10 bg-white/80 backdrop-blur-sm hover:shadow-lg hover:shadow-purple/5 transition-all duration-500 group">
-                      <CardContent className="p-6">
-                        <div className="flex items-center gap-4 mb-4">
-                          <Avatar className="h-14 w-14 border-2 border-purple/20 shadow-sm group-hover:scale-110 transition-transform duration-500">
+                      <CardContent className="p-4 md:p-6">
+                        <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
+                          <Avatar className="h-10 w-10 md:h-14 md:w-14 border-2 border-purple/20 shadow-sm group-hover:scale-110 transition-transform duration-500">
                             <div className="relative w-full h-full overflow-hidden rounded-full">
                               <AspectRatio ratio={1 / 1} className="w-full h-full">
                                 <AvatarImage 
@@ -122,12 +124,12 @@ const Testimonials = () => {
                                 />
                               </AspectRatio>
                               <AvatarFallback>
-                                <User className="h-8 w-8 text-purple-light/50" />
+                                <User className="h-6 w-6 md:h-8 md:w-8 text-purple-light/50" />
                               </AvatarFallback>
                             </div>
                           </Avatar>
                           <div>
-                            <h3 className="font-semibold text-lg text-purple-dark">{testimonial.name}</h3>
+                            <h3 className="font-semibold text-base md:text-lg text-purple-dark">{testimonial.name}</h3>
                             <div className="flex space-x-1">
                               {[...Array(5)].map((_, i) => (
                                 <div key={i} className="text-purple-light text-xs">★</div>
@@ -137,9 +139,9 @@ const Testimonials = () => {
                         </div>
                         
                         <div className="relative">
-                          <div className="absolute -top-2 -left-2 text-6xl text-purple/10 font-serif leading-none">"</div>
-                          <p className="text-gray-700 relative z-10 pl-5 italic font-medium">{testimonial.quote}</p>
-                          <div className="absolute -bottom-6 -right-2 text-6xl text-purple/10 font-serif leading-none">"</div>
+                          <div className="absolute -top-2 -left-2 text-4xl md:text-6xl text-purple/10 font-serif leading-none">"</div>
+                          <p className="text-sm md:text-base text-gray-700 relative z-10 pl-4 md:pl-5 italic font-medium">{testimonial.quote}</p>
+                          <div className="absolute -bottom-4 md:-bottom-6 -right-2 text-4xl md:text-6xl text-purple/10 font-serif leading-none">"</div>
                         </div>
                       </CardContent>
                     </Card>
@@ -147,15 +149,15 @@ const Testimonials = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <div className="flex items-center justify-center mt-10 gap-2">
-              <CarouselPrevious className="relative static left-0 translate-y-0 h-10 w-10 border-purple/20 bg-white/80 text-purple hover:bg-purple hover:text-white transition-colors" />
-              <CarouselNext className="relative static right-0 translate-y-0 h-10 w-10 border-purple/20 bg-white/80 text-purple hover:bg-purple hover:text-white transition-colors" />
+            <div className="flex items-center justify-center mt-6 md:mt-10 gap-2">
+              <CarouselPrevious className="relative static left-0 translate-y-0 h-8 w-8 md:h-10 md:w-10 border-purple/20 bg-white/80 text-purple hover:bg-purple hover:text-white transition-colors" />
+              <CarouselNext className="relative static right-0 translate-y-0 h-8 w-8 md:h-10 md:w-10 border-purple/20 bg-white/80 text-purple hover:bg-purple hover:text-white transition-colors" />
             </div>
           </Carousel>
         </div>
         
-        <div className="mt-16 text-center">
-          <p className="inline-block max-w-xl text-lg text-purple-dark font-medium px-6 py-3 bg-purple/5 rounded-lg border border-purple/10">
+        <div className="mt-10 md:mt-16 text-center">
+          <p className="inline-block max-w-xs md:max-w-xl text-base md:text-lg text-purple-dark font-medium px-4 md:px-6 py-2 md:py-3 bg-purple/5 rounded-lg border border-purple/10">
             Junte-se a milhares de mulheres que transformaram suas vidas através do Detox
           </p>
         </div>

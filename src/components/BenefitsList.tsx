@@ -1,7 +1,9 @@
+
 import React from 'react';
 import { Check, Sparkles, Lightbulb, Key, ShieldCheck, Gauge, Rocket } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { scrollToPricing } from '@/utils/scrollUtils';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 // Map icons to replace emojis with 3D-like icons
 const iconMap = {
@@ -47,6 +49,8 @@ const benefits = [
 ];
 
 const BenefitsList = () => {
+  const isMobile = useIsMobile();
+  
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -63,10 +67,10 @@ const BenefitsList = () => {
   };
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-b from-purple/5 to-purple/10 relative overflow-hidden">
+    <section className="py-12 md:py-16 lg:py-24 bg-gradient-to-b from-purple/5 to-purple/10 relative overflow-hidden">
       {/* Decorative Elements */}
-      <div className="absolute top-20 left-10 w-64 h-64 bg-purple/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-10 w-80 h-80 bg-nude/10 rounded-full blur-3xl"></div>
+      <div className="absolute top-20 left-10 w-48 md:w-64 h-48 md:h-64 bg-purple/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 right-10 w-64 md:w-80 h-64 md:h-80 bg-nude/10 rounded-full blur-3xl"></div>
       
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <motion.div 
@@ -74,12 +78,12 @@ const BenefitsList = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="max-w-3xl mx-auto text-center mb-12"
+          className="max-w-3xl mx-auto text-center mb-8 md:mb-12"
         >
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-playfair font-bold text-center text-purple-dark mb-3">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-playfair font-bold text-center text-purple-dark mb-2 md:mb-3">
             Você vai <span className="text-purple italic bg-gradient-to-r from-purple-light to-purple bg-clip-text text-transparent">transformar sua vida</span>:
           </h2>
-          <div className="h-1 w-32 bg-gradient-to-r from-purple-light to-purple mx-auto"></div>
+          <div className="h-1 w-24 md:w-32 bg-gradient-to-r from-purple-light to-purple mx-auto"></div>
         </motion.div>
         
         <motion.div 
@@ -89,8 +93,8 @@ const BenefitsList = () => {
           viewport={{ once: true, margin: "-50px" }}
           className="max-w-4xl mx-auto"
         >
-          <div className="bg-white/80 backdrop-blur-md rounded-2xl shadow-xl p-8 md:p-12 border border-purple/10 transform hover:shadow-2xl transition-all duration-500">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="bg-white/80 backdrop-blur-md rounded-2xl shadow-xl p-6 md:p-8 lg:p-12 border border-purple/10 transform hover:shadow-2xl transition-all duration-500">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
               {benefits.map((benefit, index) => {
                 const IconComponent = iconMap[benefit.id];
                 
@@ -101,21 +105,21 @@ const BenefitsList = () => {
                     className="relative"
                   >
                     {/* Modern 3D-like benefit card */}
-                    <div className="bg-gradient-to-br from-white to-purple/5 rounded-xl p-6 shadow-lg border border-purple/10 h-full relative z-10 overflow-hidden group hover:shadow-xl transition-all duration-300">
+                    <div className="bg-gradient-to-br from-white to-purple/5 rounded-xl p-4 md:p-6 shadow-lg border border-purple/10 h-full relative z-10 overflow-hidden group hover:shadow-xl transition-all duration-300">
                       
                       {/* Background blur effect */}
                       <div className="absolute inset-0 bg-gradient-to-br from-white/60 to-purple/10 backdrop-blur-sm opacity-70 z-0"></div>
                       
                       {/* 3D Icon with gradient backdrop */}
-                      <div className="relative z-20 mb-4">
-                        <div className={`absolute -top-2 -left-2 w-16 h-16 bg-gradient-to-br ${benefit.color} rounded-lg opacity-20 blur-lg group-hover:opacity-30 transition-opacity duration-300`}></div>
-                        <div className={`flex items-center justify-center w-14 h-14 bg-gradient-to-br ${benefit.color} rounded-lg shadow-lg transform group-hover:scale-110 transition-transform duration-300`}>
-                          <IconComponent className="w-7 h-7 text-white drop-shadow-md" />
+                      <div className="relative z-20 mb-3 md:mb-4">
+                        <div className={`absolute -top-2 -left-2 w-12 md:w-16 h-12 md:h-16 bg-gradient-to-br ${benefit.color} rounded-lg opacity-20 blur-lg group-hover:opacity-30 transition-opacity duration-300`}></div>
+                        <div className={`flex items-center justify-center w-10 md:w-14 h-10 md:h-14 bg-gradient-to-br ${benefit.color} rounded-lg shadow-lg transform group-hover:scale-110 transition-transform duration-300`}>
+                          <IconComponent className="w-5 h-5 md:w-7 md:h-7 text-white drop-shadow-md" />
                         </div>
                       </div>
                       
                       {/* Text content */}
-                      <p className="text-lg md:text-xl font-medium text-gray-800 leading-relaxed relative z-20 mt-2 group-hover:text-purple-dark transition-colors duration-300">
+                      <p className="text-base md:text-lg lg:text-xl font-medium text-gray-800 leading-relaxed relative z-20 mt-2 group-hover:text-purple-dark transition-colors duration-300">
                         {benefit.text.includes("(") 
                           ? benefit.text.split("(").map((part, i) => 
                               i === 0 
@@ -127,10 +131,10 @@ const BenefitsList = () => {
                       </p>
                       
                       {/* Overlapping check element */}
-                      <div className="absolute -bottom-3 -right-3 w-10 h-10 z-30">
+                      <div className="absolute -bottom-3 -right-3 w-8 md:w-10 h-8 md:h-10 z-30">
                         <div className="absolute inset-0 bg-white rounded-full blur-sm"></div>
                         <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-purple to-purple-dark rounded-full shadow-lg border border-white">
-                          <Check className="w-5 h-5 text-white" />
+                          <Check className="w-4 h-4 md:w-5 md:h-5 text-white" />
                         </div>
                       </div>
                     </div>
@@ -144,15 +148,15 @@ const BenefitsList = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.8, duration: 0.5 }}
-              className="mt-16 text-center"
+              className="mt-10 md:mt-16 text-center"
             >
               <button 
                 onClick={scrollToPricing}
-                className="bg-gradient-to-r from-purple-light via-purple to-purple-dark bg-size-200 animate-gradient-x text-white transition-all duration-300 py-4 px-10 rounded-xl font-medium text-lg shadow-xl hover:shadow-purple/30 hover:shadow-lg transform hover:translate-y-[-5px] group"
+                className="bg-gradient-to-r from-purple-light via-purple to-purple-dark bg-size-200 animate-gradient-x text-white transition-all duration-300 py-3 md:py-4 px-6 md:px-10 rounded-xl font-medium text-base md:text-lg shadow-xl hover:shadow-purple/30 hover:shadow-lg transform hover:translate-y-[-5px] group"
               >
                 <span className="flex items-center gap-2">
                   Quero começar agora
-                  <Sparkles className="w-5 h-5 group-hover:animate-pulse" />
+                  <Sparkles className="w-4 h-4 md:w-5 md:h-5 group-hover:animate-pulse" />
                 </span>
               </button>
             </motion.div>

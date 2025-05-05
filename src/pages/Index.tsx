@@ -12,8 +12,11 @@ import FaqSection from '@/components/FaqSection';
 import FinalCta from '@/components/FinalCta';
 import Footer from '@/components/Footer';
 import { scrollToPricing } from '@/utils/scrollUtils';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Index = () => {
+  const isMobile = useIsMobile();
+  
   // Set up event listener for the final CTA button
   useEffect(() => {
     const finalCtaButton = document.querySelector('.final-cta-button');

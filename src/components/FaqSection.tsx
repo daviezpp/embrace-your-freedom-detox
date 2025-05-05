@@ -6,6 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const faqItems = [
   {
@@ -31,21 +32,23 @@ const faqItems = [
 ];
 
 const FaqSection = () => {
+  const isMobile = useIsMobile();
+  
   return (
-    <section className="py-16 md:py-20">
+    <section className="py-12 md:py-16 lg:py-20">
       <div className="container mx-auto px-4 md:px-8">
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-playfair font-bold text-center text-purple-dark mb-10">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-playfair font-bold text-center text-purple-dark mb-6 md:mb-10">
           Dúvidas Frequentes
         </h2>
         
         <div className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion type="single" collapsible className="space-y-3 md:space-y-4">
             {faqItems.map((item, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="border border-purple-light/30 rounded-lg px-6">
-                <AccordionTrigger className="text-left text-lg font-medium py-5 text-purple-dark hover:text-purple hover:no-underline">
+              <AccordionItem key={index} value={`item-${index}`} className="border border-purple-light/30 rounded-lg px-4 md:px-6">
+                <AccordionTrigger className="text-left text-base md:text-lg font-medium py-4 md:py-5 text-purple-dark hover:text-purple hover:no-underline pr-2">
                   {item.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-gray-700 pb-5">
+                <AccordionContent className="text-sm md:text-base text-gray-700 pb-4 md:pb-5">
                   {item.answer}
                 </AccordionContent>
               </AccordionItem>
