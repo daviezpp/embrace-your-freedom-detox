@@ -1,15 +1,14 @@
-
 import React from 'react';
-import { Check } from 'lucide-react';
+import { Check, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const benefits = [
-  "Clareza sobre o que está vivendo (e por que repete)",
-  "Fim da culpa por querer sair",
-  "Fortalecimento emocional real",
-  "Técnicas práticas pra cortar vínculos tóxicos",
-  "Segurança para não recair",
-  "Autonomia emocional pra reconstruir sua vida"
+  "✨ Clareza absoluta para entender seu padrão emocional (e por que ele se repete)",
+  "🔓 Liberdade da culpa que te prende a relações prejudiciais",
+  "💪 Fortalecimento emocional genuíno e duradouro",
+  "🛡️ Arsenal de técnicas poderosas para cortar vínculos tóxicos",
+  "🔒 Segurança inabalável para não recair em relacionamentos nocivos",
+  "🚀 Autonomia plena para reconstruir sua vida em seus próprios termos"
 ];
 
 const BenefitsList = () => {
@@ -43,7 +42,7 @@ const BenefitsList = () => {
           className="max-w-3xl mx-auto text-center mb-12"
         >
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-playfair font-bold text-center text-purple-dark mb-3">
-            Você vai <span className="text-purple italic">conquistar</span>:
+            Você vai <span className="text-purple italic bg-gradient-to-r from-purple-light to-purple bg-clip-text text-transparent">transformar sua vida</span>:
           </h2>
           <div className="h-1 w-32 bg-gradient-to-r from-purple-light to-purple mx-auto"></div>
         </motion.div>
@@ -55,7 +54,7 @@ const BenefitsList = () => {
           viewport={{ once: true, margin: "-50px" }}
           className="max-w-4xl mx-auto"
         >
-          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-purple/10 transform hover:shadow-2xl transition-all duration-500">
+          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 border border-purple/10 transform hover:shadow-2xl transition-all duration-500 backdrop-blur-sm bg-white/90">
             <ul className="space-y-6">
               {benefits.map((benefit, index) => (
                 <motion.li 
@@ -72,9 +71,9 @@ const BenefitsList = () => {
                       ? benefit.split("(").map((part, i) => 
                           i === 0 
                             ? <span key={i}>{part}</span> 
-                            : <span key={i} className="text-purple-light italic">({part}</span>
+                            : <span key={i} className="text-purple-light italic font-bold">({part}</span>
                         )
-                      : benefit
+                      : <span dangerouslySetInnerHTML={{ __html: benefit.replace(/✨|🔓|💪|🛡️|🔒|🚀/g, '<span class="text-2xl md:text-3xl mr-1">$&</span>') }} />
                     }
                   </p>
                 </motion.li>
@@ -88,8 +87,11 @@ const BenefitsList = () => {
               transition={{ delay: 0.8, duration: 0.5 }}
               className="mt-12 text-center"
             >
-              <button className="bg-gradient-to-r from-purple-light via-purple to-purple-dark bg-size-200 animate-gradient-x text-white transition-all duration-300 py-4 px-10 rounded-xl font-medium text-lg shadow-xl hover:shadow-purple/30 hover:shadow-lg transform hover:translate-y-[-5px]">
-                Quero começar agora
+              <button className="bg-gradient-to-r from-purple-light via-purple to-purple-dark bg-size-200 animate-gradient-x text-white transition-all duration-300 py-4 px-10 rounded-xl font-medium text-lg shadow-xl hover:shadow-purple/30 hover:shadow-lg transform hover:translate-y-[-5px] group">
+                <span className="flex items-center gap-2">
+                  Quero começar agora
+                  <Sparkles className="w-5 h-5 group-hover:animate-pulse" />
+                </span>
               </button>
             </motion.div>
           </div>
