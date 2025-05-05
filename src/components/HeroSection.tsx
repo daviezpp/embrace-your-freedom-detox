@@ -9,7 +9,7 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&q=80)' }}></div>
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&q=80)' }}></div>
       
       {/* Overlay with Logo */}
       <div className="absolute inset-0 bg-purple-dark/60 z-10 flex flex-col items-center">
