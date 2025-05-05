@@ -6,8 +6,14 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Avatar } from '@/components/ui/avatar';
+import { scrollToPricing } from '@/utils/scrollUtils';
 
 const FinalCta = () => {
+  const handleButtonClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    scrollToPricing();
+  };
+
   return (
     <section className="relative py-20 overflow-hidden">
       {/* Background with gradient */}
@@ -54,9 +60,9 @@ const FinalCta = () => {
               <Card className="overflow-hidden rounded-2xl border-purple/20 shadow-xl max-w-sm mx-auto bg-white/80 backdrop-blur-sm">
                 <AspectRatio ratio={9/16} className="bg-muted relative overflow-hidden">
                   <img 
-                    src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?auto=format&fit=crop&q=80" 
+                    src="/lovable-uploads/321cac09-eca1-448a-8e16-ede821477d6f.png" 
                     alt="Elaine e Cris, fundadoras da Tornar-me Eu" 
-                    className="object-cover w-full h-full"
+                    className="object-cover w-full h-full rounded-2xl"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-purple-dark/50 to-transparent"></div>
                   
@@ -100,7 +106,8 @@ const FinalCta = () => {
                   className="pt-4"
                 >
                   <Button 
-                    className="w-full md:w-auto bg-gradient-to-r from-purple-light via-purple to-purple-dark bg-size-200 animate-gradient-x shadow-md"
+                    className="w-full md:w-auto bg-gradient-to-r from-purple-light via-purple to-purple-dark bg-size-200 animate-gradient-x shadow-md final-cta-button"
+                    onClick={handleButtonClick}
                   >
                     Comece sua jornada agora
                     <ArrowRight className="ml-2 w-5 h-5" />
