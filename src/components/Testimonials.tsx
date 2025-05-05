@@ -1,47 +1,125 @@
 
 import React from 'react';
+import { 
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious 
+} from "@/components/ui/carousel";
+import { Card, CardContent } from "@/components/ui/card";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { User } from "lucide-react";
 
 const testimonials = [
   {
-    image: "https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?auto=format&fit=crop&q=80",
-    quote: "A Carol saiu de um relacionamento de 7 anos e voltou a dormir em paz."
+    name: "Fernanda Oliveira",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80",
+    quote: "Depois de 3 anos em um relacionamento que me consumia, o Detox me deu forças para seguir em frente. Hoje me sinto livre e renovada."
   },
   {
-    image: "https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&q=80",
-    quote: "A Vanessa entendeu o ciclo e disse não com firmeza."
+    name: "Juliana Costa",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80",
+    quote: "Achei que nunca conseguiria sair daquele ciclo. O Detox me ajudou a entender os padrões e hoje tenho um relacionamento saudável."
   },
   {
-    image: "https://images.unsplash.com/photo-1518495973542-4542c06a5843?auto=format&fit=crop&q=80",
-    quote: "A Jéssica achou que não ia aguentar… hoje é ela quem escolhe."
+    name: "Carolina Santos",
+    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80",
+    quote: "Eu me culpava todos os dias. Hoje entendo que mereço mais e tenho coragem para dizer não."
+  },
+  {
+    name: "Amanda Rodrigues",
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80",
+    quote: "As ferramentas que aprendi no Detox mudaram completamente minha visão do que é um relacionamento saudável."
+  },
+  {
+    name: "Beatriz Almeida",
+    image: "https://images.unsplash.com/photo-1509967419530-da38b4704bc6?auto=format&fit=crop&q=80",
+    quote: "Seis meses depois do Detox, encontrei um parceiro que me respeita e valoriza. A diferença é gritante!"
+  },
+  {
+    name: "Mariana Lima",
+    image: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&q=80",
+    quote: "Pensava que estava sozinha nessa luta. No Detox encontrei apoio e compreensão para finalmente seguir em frente."
+  },
+  {
+    name: "Camila Ferreira",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80",
+    quote: "Minha autoestima estava destruída. Hoje me olho no espelho e vejo uma mulher forte que sabe o que merece."
+  },
+  {
+    name: "Renata Vieira",
+    image: "https://images.unsplash.com/photo-1599842057874-37393e9342df?auto=format&fit=crop&q=80",
+    quote: "Eu tinha medo do futuro. O Detox me mostrou que há um caminho de cura e felicidade depois de um relacionamento tóxico."
   }
 ];
 
 const Testimonials = () => {
   return (
-    <section className="py-16 md:py-20 bg-purple bg-opacity-5">
+    <section className="py-16 md:py-24 bg-gradient-to-br from-purple-light/10 via-purple/5 to-nude/10">
       <div className="container mx-auto px-4 md:px-8">
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-playfair font-bold text-center text-purple-dark mb-10">
-          Elas começaram desacreditadas... e hoje se sentem inteiras.
-        </h2>
+        <div className="text-center mb-12 md:mb-16 max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-playfair font-bold text-purple-dark mb-5 leading-tight">
+            Histórias de <span className="text-purple italic">Transformação</span>
+          </h2>
+          <p className="text-lg md:text-xl text-gray-700">
+            Mulheres reais que deram o primeiro passo para uma nova vida. Você também pode ser uma delas.
+          </p>
+        </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
-          {testimonials.map((testimonial, index) => (
-            <div 
-              key={index} 
-              className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-white"
-            >
-              <div className="h-48 overflow-hidden">
-                <img 
-                  src={testimonial.image} 
-                  alt={`Testemunho ${index + 1}`} 
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                />
-              </div>
-              <div className="p-6">
-                <p className="text-lg text-gray-700 italic font-medium">"{testimonial.quote}"</p>
-              </div>
+        <div className="relative px-8 sm:px-12 md:px-16">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-4">
+              {testimonials.map((testimonial, index) => (
+                <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                  <div className="h-full">
+                    <Card className="h-full border-purple/10 bg-white/80 backdrop-blur-sm hover:shadow-lg hover:shadow-purple/5 transition-all duration-500 group">
+                      <CardContent className="p-6">
+                        <div className="flex items-center gap-4 mb-4">
+                          <Avatar className="h-14 w-14 border-2 border-purple/20 shadow-sm group-hover:scale-110 transition-transform duration-500">
+                            <AvatarImage src={testimonial.image} alt={testimonial.name} />
+                            <AvatarFallback>
+                              <User className="h-8 w-8 text-purple-light/50" />
+                            </AvatarFallback>
+                          </Avatar>
+                          <div>
+                            <h3 className="font-semibold text-lg text-purple-dark">{testimonial.name}</h3>
+                            <div className="flex space-x-1">
+                              {[...Array(5)].map((_, i) => (
+                                <div key={i} className="text-purple-light text-xs">★</div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                        
+                        <div className="relative">
+                          <div className="absolute -top-2 -left-2 text-6xl text-purple/10 font-serif leading-none">"</div>
+                          <p className="text-gray-700 relative z-10 pl-5 italic font-medium">{testimonial.quote}</p>
+                          <div className="absolute -bottom-6 -right-2 text-6xl text-purple/10 font-serif leading-none">"</div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="flex items-center justify-center mt-10 gap-2">
+              <CarouselPrevious className="relative static left-0 translate-y-0 h-10 w-10 border-purple/20 bg-white/80 text-purple hover:bg-purple hover:text-white transition-colors" />
+              <CarouselNext className="relative static right-0 translate-y-0 h-10 w-10 border-purple/20 bg-white/80 text-purple hover:bg-purple hover:text-white transition-colors" />
             </div>
-          ))}
+          </Carousel>
+        </div>
+        
+        <div className="mt-16 text-center">
+          <p className="inline-block max-w-xl text-lg text-purple-dark font-medium px-6 py-3 bg-purple/5 rounded-lg border border-purple/10">
+            Junte-se a milhares de mulheres que transformaram suas vidas através do Detox
+          </p>
         </div>
       </div>
     </section>
