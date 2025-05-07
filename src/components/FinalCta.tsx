@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
-import { Avatar } from '@/components/ui/avatar';
+import { Avatar, AvatarImage } from '@/components/ui/avatar';
 import { scrollToPricing } from '@/utils/scrollUtils';
 import { useIsMobile } from '@/hooks/use-mobile';
 
@@ -18,7 +18,7 @@ const FinalCta = () => {
   };
 
   return (
-    <section className="relative py-16 md:py-20 overflow-hidden">
+    <section className="relative py-16 md:py-24 overflow-hidden">
       {/* Background with gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-purple-light/20 via-purple/10 to-white/5 z-0"></div>
       
@@ -52,41 +52,33 @@ const FinalCta = () => {
           
           {/* Content Grid */}
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-            {/* Image with adjusted aspect ratio */}
+            {/* Image column */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
-              className="mx-auto md:order-1 order-2"
+              className="md:order-1 order-2 flex justify-center"
             >
-              <Card className="overflow-hidden rounded-2xl border-purple/20 shadow-xl max-w-sm mx-auto bg-white/80 backdrop-blur-sm">
-                <AspectRatio ratio={3/4} className="bg-muted relative overflow-hidden">
-                  <img 
-                    src="/lovable-uploads/321cac09-eca1-448a-8e16-ede821477d6f.png" 
-                    alt="Elaine e Cris, fundadoras da Tornar-me Eu" 
-                    className="object-cover w-full h-full rounded-2xl"
-                    onError={(e) => {
-                      const imgElement = e.currentTarget;
-                      console.error('Error loading image');
-                      imgElement.onerror = null; // Prevent infinite error loop
-                      imgElement.src = '/placeholder.svg';
-                      // Try to load image with different methods
-                      setTimeout(() => {
-                        imgElement.src = '/lovable-uploads/321cac09-eca1-448a-8e16-ede821477d6f.png';
-                      }, 500);
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-purple-dark/30 to-transparent"></div>
-                  
-                  {/* Founder Avatars */}
-                  <div className="absolute bottom-4 left-4 right-4 flex justify-center gap-4">
-                    <Avatar className="w-10 md:w-12 h-10 md:h-12 border-2 border-white">
-                      <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80" alt="Elaine" />
-                    </Avatar>
-                    <Avatar className="w-10 md:w-12 h-10 md:h-12 border-2 border-white">
-                      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80" alt="Cris" />
-                    </Avatar>
+              <Card className="overflow-hidden rounded-2xl border-purple/20 shadow-xl max-w-sm w-full bg-white/80 backdrop-blur-sm">
+                <AspectRatio ratio={3/4} className="bg-muted">
+                  <div className="relative w-full h-full">
+                    <img 
+                      src="/lovable-uploads/321cac09-eca1-448a-8e16-ede821477d6f.png" 
+                      alt="Elaine e Cris, fundadoras da Tornar-me Eu" 
+                      className="object-cover w-full h-full"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-purple-dark/40 to-transparent"></div>
+                    
+                    {/* Founder Avatars */}
+                    <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-4">
+                      <Avatar className="w-10 md:w-12 h-10 md:h-12 border-2 border-white">
+                        <AvatarImage src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80" alt="Elaine" />
+                      </Avatar>
+                      <Avatar className="w-10 md:w-12 h-10 md:h-12 border-2 border-white">
+                        <AvatarImage src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80" alt="Cris" />
+                      </Avatar>
+                    </div>
                   </div>
                 </AspectRatio>
               </Card>
