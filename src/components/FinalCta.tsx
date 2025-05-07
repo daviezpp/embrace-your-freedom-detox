@@ -1,18 +1,21 @@
+
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Avatar, AvatarImage } from '@/components/ui/avatar';
 import { scrollToPricing } from '@/utils/scrollUtils';
 import { useIsMobile } from '@/hooks/use-mobile';
+
 const FinalCta = () => {
   const isMobile = useIsMobile();
+  
   const handleButtonClick = (e: React.MouseEvent) => {
     e.preventDefault();
     scrollToPricing();
   };
+  
   return <section className="relative py-16 md:py-24 overflow-hidden">
       {/* Background with gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-purple-light/20 via-purple/10 to-white/5 z-0"></div>
@@ -67,18 +70,16 @@ const FinalCta = () => {
             duration: 0.7
           }} className="md:order-1 order-2 flex justify-center">
               <Card className="overflow-hidden rounded-2xl border-purple/20 shadow-xl max-w-sm w-full bg-white/80 backdrop-blur-sm">
-                <AspectRatio ratio={3 / 4} className="bg-muted">
-                  <div className="relative w-full h-full">
-                    <img src="/lovable-uploads/321cac09-eca1-448a-8e16-ede821477d6f.png" alt="Elaine e Cris, fundadoras da Tornar-me Eu" className="object-cover w-full h-full" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-purple-dark/40 to-transparent px-0"></div>
+                <div className="relative w-full">
+                  <img src="/lovable-uploads/321cac09-eca1-448a-8e16-ede821477d6f.png" alt="Elaine e Cris, fundadoras da Tornar-me Eu" className="object-cover w-full h-auto" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-purple-dark/40 to-transparent px-0"></div>
+                  
+                  {/* Founder Avatars */}
+                  <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-4">
                     
-                    {/* Founder Avatars */}
-                    <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-4">
-                      
-                      
-                    </div>
+                    
                   </div>
-                </AspectRatio>
+                </div>
               </Card>
             </motion.div>
             
@@ -125,4 +126,5 @@ const FinalCta = () => {
       </div>
     </section>;
 };
+
 export default FinalCta;
