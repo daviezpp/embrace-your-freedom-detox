@@ -63,9 +63,13 @@ const FinalCta = () => {
               <Card className="overflow-hidden rounded-2xl border-purple/20 shadow-xl max-w-sm mx-auto bg-white/80 backdrop-blur-sm">
                 <AspectRatio ratio={9/16} className="bg-muted relative overflow-hidden">
                   <img 
-                    src="/lovable-uploads/14ac786a-0149-4cf1-8274-3c4bceb0dbab.png" 
+                    src="/lovable-uploads/321cac09-eca1-448a-8e16-ede821477d6f.png" 
                     alt="Elaine e Cris, fundadoras da Tornar-me Eu" 
                     className="object-cover w-full h-full rounded-2xl"
+                    onError={(e) => {
+                      console.error('Error loading image');
+                      e.currentTarget.src = '/placeholder.svg';
+                    }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-purple-dark/30 to-transparent"></div>
                   
