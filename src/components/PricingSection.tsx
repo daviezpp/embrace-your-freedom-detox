@@ -100,10 +100,10 @@ const PricingSection = () => {
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
                   {[
-                    { title: "Frases de Reforço Emocional", subtitle: "Para acalmar sua mente e fortalecer seu espírito" },
-                    { title: 'Mini Guia: Sinais de Manipulação Emocional', subtitle: "Baseado em técnicas comprovadas de psicologia" },
+                    { title: "Frases de Reforço Emocional", subtitle: "Um plano prático de 7 dias com ações simples e profundas pra te reconectar com Deus e com você mesma." },
+                    { title: 'Mini Guia: Sinais de Manipulação Emocional', subtitle: "30 frases pra imprimir, colar no espelho ou salvar no celular — pra lembrar quem você é, mesmo nos dias mais difíceis." },
                     { title: "Frases de Reforço Emocional", subtitle: "Com mulheres passando pelo mesmo processo" },
-                    { title: "Plenamente – Guia de Meditações de Bolso", subtitle: "Atualizações e melhorias sem custo adicional" }
+                    { title: "Plenamente – Guia de Meditações de Bolso", subtitle: "Meditações cristãs guiadas e curtas para usar nos momentos de crise, ansiedade ou sobrecarga emocional." }
                   ].map((benefit, index) => (
                     <motion.div 
                       key={index}
