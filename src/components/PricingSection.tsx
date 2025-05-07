@@ -101,7 +101,7 @@ const PricingSection = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
                   {[
                     { title: "Frases de Reforço Emocional", subtitle: "Para acalmar sua mente e fortalecer seu espírito" },
-                    { title: 'E-book: "Como cortar o laço emocional sem sofrer"', subtitle: "Baseado em técnicas comprovadas de psicologia" },
+                    { title: 'Mini Guia: Sinais de Manipulação Emocional', subtitle: "Baseado em técnicas comprovadas de psicologia" },
                     { title: "Frases de Reforço Emocional", subtitle: "Com mulheres passando pelo mesmo processo" },
                     { title: "Acesso vitalício", subtitle: "Atualizações e melhorias sem custo adicional" }
                   ].map((benefit, index) => (
