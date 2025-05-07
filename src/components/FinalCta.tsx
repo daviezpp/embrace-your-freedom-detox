@@ -52,7 +52,7 @@ const FinalCta = () => {
           
           {/* Content Grid */}
           <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-            {/* Image with 9:16 aspect ratio */}
+            {/* Image with adjusted aspect ratio */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -61,7 +61,7 @@ const FinalCta = () => {
               className="mx-auto md:order-1 order-2"
             >
               <Card className="overflow-hidden rounded-2xl border-purple/20 shadow-xl max-w-sm mx-auto bg-white/80 backdrop-blur-sm">
-                <AspectRatio ratio={9/16} className="bg-muted relative overflow-hidden">
+                <AspectRatio ratio={3/4} className="bg-muted relative overflow-hidden">
                   <img 
                     src="/lovable-uploads/321cac09-eca1-448a-8e16-ede821477d6f.png" 
                     alt="Elaine e Cris, fundadoras da Tornar-me Eu" 
