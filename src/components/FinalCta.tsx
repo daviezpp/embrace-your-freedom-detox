@@ -67,8 +67,14 @@ const FinalCta = () => {
                     alt="Elaine e Cris, fundadoras da Tornar-me Eu" 
                     className="object-cover w-full h-full rounded-2xl"
                     onError={(e) => {
+                      const imgElement = e.currentTarget;
                       console.error('Error loading image');
-                      e.currentTarget.src = '/placeholder.svg';
+                      imgElement.onerror = null; // Prevent infinite error loop
+                      imgElement.src = '/placeholder.svg';
+                      // Try to load image with different methods
+                      setTimeout(() => {
+                        imgElement.src = '/lovable-uploads/321cac09-eca1-448a-8e16-ede821477d6f.png';
+                      }, 500);
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-purple-dark/30 to-transparent"></div>
