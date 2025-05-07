@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ArrowRight, Gift, Check, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -99,7 +100,7 @@ const PricingSection = () => {
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
                   {[
-                    { title: "Checklist da Mulher que se Escolhe", subtitle: "Para acalmar sua mente e fortalecer seu espírito" },
+                    { title: "Frases de Reforço Emocional", subtitle: "Para acalmar sua mente e fortalecer seu espírito" },
                     { title: 'E-book: "Como cortar o laço emocional sem sofrer"', subtitle: "Baseado em técnicas comprovadas de psicologia" },
                     { title: "Grupo de apoio privado", subtitle: "Com mulheres passando pelo mesmo processo" },
                     { title: "Acesso vitalício", subtitle: "Atualizações e melhorias sem custo adicional" }
