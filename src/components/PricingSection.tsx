@@ -103,7 +103,7 @@ const PricingSection = () => {
                     { title: "Frases de Reforço Emocional", subtitle: "Para acalmar sua mente e fortalecer seu espírito" },
                     { title: 'Mini Guia: Sinais de Manipulação Emocional', subtitle: "Baseado em técnicas comprovadas de psicologia" },
                     { title: "Frases de Reforço Emocional", subtitle: "Com mulheres passando pelo mesmo processo" },
-                    { title: "Acesso vitalício", subtitle: "Atualizações e melhorias sem custo adicional" }
+                    { title: "Plenamente – Guia de Meditações de Bolso", subtitle: "Atualizações e melhorias sem custo adicional" }
                   ].map((benefit, index) => (
                     <motion.div 
                       key={index}
