@@ -102,7 +102,7 @@ const PricingSection = () => {
                   {[
                     { title: "Frases de Reforço Emocional", subtitle: "Para acalmar sua mente e fortalecer seu espírito" },
                     { title: 'E-book: "Como cortar o laço emocional sem sofrer"', subtitle: "Baseado em técnicas comprovadas de psicologia" },
-                    { title: "Grupo de apoio privado", subtitle: "Com mulheres passando pelo mesmo processo" },
+                    { title: "Frases de Reforço Emocional", subtitle: "Com mulheres passando pelo mesmo processo" },
                     { title: "Acesso vitalício", subtitle: "Atualizações e melhorias sem custo adicional" }
                   ].map((benefit, index) => (
                     <motion.div 
