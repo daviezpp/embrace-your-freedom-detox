@@ -91,7 +91,7 @@ const PainPoints = () => {
             
             <Button 
               onClick={scrollToPricing}
-              className="group bg-white/20 hover:bg-white/30 border border-white/30 text-white px-6 md:px-8 py-3 md:py-6 rounded-xl text-base md:text-lg font-medium transition-all duration-300"
+              className="group bg-gradient-to-r from-green-400 to-green-600 hover:bg-gradient-to-r hover:from-green-500 hover:to-green-700 bg-size-200 animate-gradient-x text-white px-6 md:px-8 py-3 md:py-6 rounded-xl text-base md:text-lg font-medium transition-all duration-300 shadow-xl hover:shadow-green-500/30"
             >
               <LockOpen className="w-4 h-4 md:w-5 md:h-5 mr-2 transition-transform duration-300 group-hover:rotate-12" />
               Comece sua jornada de libertação

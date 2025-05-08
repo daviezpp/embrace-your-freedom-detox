@@ -42,7 +42,7 @@ const HeroSection = () => {
             whileTap={{ scale: 0.95 }}
           >
             <Button 
-              className="px-6 md:px-8 py-4 md:py-6 text-base md:text-lg bg-gradient-to-r from-purple-light to-purple bg-size-200 animate-gradient-x" 
+              className="px-6 md:px-8 py-4 md:py-6 text-base md:text-lg bg-gradient-to-r from-green-400 to-green-600 bg-size-200 animate-gradient-x shadow-xl hover:shadow-green-500/30" 
               onClick={scrollToPricing}
             >
               Comece Agora

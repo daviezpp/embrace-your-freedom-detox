@@ -84,7 +84,7 @@ const AboutDetox = () => {
           >
             <button 
               onClick={scrollToPricing}
-              className="bg-gradient-to-r from-purple-light via-purple to-purple-dark bg-size-200 animate-gradient-x text-white transition-all duration-300 py-3 md:py-4 px-6 md:px-8 rounded-md flex items-center gap-2 mx-auto font-medium text-base md:text-lg shadow-xl hover:shadow-purple/30 hover:shadow-lg"
+              className="bg-gradient-to-r from-green-400 to-green-600 bg-size-200 animate-gradient-x text-white transition-all duration-300 py-3 md:py-4 px-6 md:px-8 rounded-md flex items-center gap-2 mx-auto font-medium text-base md:text-lg shadow-xl hover:shadow-green-500/30 hover:shadow-lg"
             >
               Quero viver essa transformação
               <ArrowRight className="w-4 h-4 md:w-5 md:h-5 animate-pulse" />
