@@ -130,12 +130,12 @@ const PricingSection = () => {
                   ou <span className="font-bold text-2xl">R$67,00</span> à vista
                 </motion.p>
                 
-                {/* Imagem dos métodos de pagamento - tamanho reduzido para 30% mobile e 20% desktop */}
+                {/* Imagem dos métodos de pagamento - tamanho atualizado para 65% mobile e 45% desktop */}
                 <div className="flex justify-center mt-4">
                   <img 
                     src="/lovable-uploads/78a4d77b-3ac4-4279-8602-03c30ea538d2.png" 
                     alt="Métodos de pagamento aceitos" 
-                    className="w-[30%] md:w-[20%] h-auto opacity-65" 
+                    className="w-[65%] md:w-[45%] h-auto opacity-65" 
                   />
                 </div>
                 
