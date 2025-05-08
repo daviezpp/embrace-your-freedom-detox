@@ -152,7 +152,7 @@ const BenefitsList = () => {
             >
               <button 
                 onClick={scrollToPricing}
-                className="bg-gradient-to-r from-purple-light via-purple to-purple-dark bg-size-200 animate-gradient-x text-white transition-all duration-300 py-3 md:py-4 px-6 md:px-10 rounded-xl font-medium text-base md:text-lg shadow-xl hover:shadow-purple/30 hover:shadow-lg transform hover:translate-y-[-5px] group"
+                className="bg-gradient-to-r from-green-400 to-green-600 bg-size-200 animate-gradient-x text-white transition-all duration-300 py-3 md:py-4 px-6 md:px-10 rounded-xl font-medium text-base md:text-lg shadow-xl hover:shadow-green-500/30 hover:shadow-lg transform hover:translate-y-[-5px] group"
               >
                 <span className="flex items-center gap-2">
                   Quero começar agora
