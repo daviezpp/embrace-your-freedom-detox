@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { ArrowRight, Gift, Check, Sparkles, BitcoinIcon, CreditCard, DollarSign, Euro } from 'lucide-react';
+import { ArrowRight, Gift, Check, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const PricingSection = () => {
@@ -8,12 +7,12 @@ const PricingSection = () => {
     window.open('https://chk.eduzz.com/1675587?_gl=1*1xk4m5e*_ga*MTM0ODg4MDQ5MS4xNzQxMTk2MjQ0*_ga_VL84B9WQ6C*czE3NDY0NzQwNDQkbzQkZzAkdDE3NDY0NzQwNDQkajAkbDAkaDA', '_blank');
   };
   
-  // Define the payment icons here - easy for developers to edit
-  const paymentIcons = [
-    { icon: <CreditCard className="h-6 w-6" />, name: "Cartão de Crédito" },
-    { icon: <DollarSign className="h-6 w-6" />, name: "Boleto" },
-    { icon: <BitcoinIcon className="h-6 w-6" />, name: "Crypto" },
-    { icon: <Euro className="h-6 w-6" />, name: "Outros" }
+  // Define the payment methods here - easy for developers to edit
+  const paymentMethods = [
+    { id: 'credit-card', name: "Cartão de Crédito", imgSrc: "/payment-credit-card.png" },
+    { id: 'boleto', name: "Boleto", imgSrc: "/payment-boleto.png" },
+    { id: 'crypto', name: "Crypto", imgSrc: "/payment-crypto.png" },
+    { id: 'outros', name: "Outros", imgSrc: "/payment-outros.png" }
   ];
   
   return <section id="pricing" className="py-24 md:py-32 relative overflow-hidden bg-gradient-to-b from-purple/10 via-purple/20 to-purple/5">
@@ -119,17 +118,28 @@ const PricingSection = () => {
                   ou <span className="font-bold text-2xl">R$67,00</span> à vista
                 </motion.p>
                 
-                {/* Seção de ícones de pagamento pré-definidos */}
+                {/* Seção de ícones de pagamento com imagens editáveis */}
                 <div className="mt-4">
-                  <div className="max-w-[250px] mx-auto bg-gray-800/40 backdrop-blur rounded-lg p-3 flex flex-wrap justify-center items-center gap-4">
-                    {paymentIcons.map((item, index) => (
-                      <div key={index} className="flex flex-col items-center gap-1">
-                        <div className="bg-gray-700/50 p-2 rounded-lg">
-                          {item.icon}
+                  <div className="max-w-[250px] mx-auto bg-gray-800/40 backdrop-blur rounded-lg p-3">
+                    <div className="flex flex-wrap justify-center items-center gap-4">
+                      {paymentMethods.map((method) => (
+                        <div key={method.id} className="flex flex-col items-center gap-1">
+                          <div className="bg-gray-700/50 p-2 rounded-lg">
+                            {/* Imagem editável - Desenvolvedores podem mudar a src */}
+                            <img 
+                              src={method.imgSrc} 
+                              alt={`Pagamento por ${method.name}`}
+                              className="w-6 h-6 object-contain"
+                              // Adicione uma imagem de fallback caso a imagem não exista
+                              onError={(e) => {
+                                e.currentTarget.src = "/placeholder.svg";
+                              }}
+                            />
+                          </div>
+                          <span className="text-xs text-white/70">{method.name}</span>
                         </div>
-                        <span className="text-xs text-white/70">{item.name}</span>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
                 </div>
                 
