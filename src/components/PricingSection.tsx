@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ArrowRight, Gift, Check, Sparkles } from 'lucide-react';
+import { ArrowRight, Gift, Check, Sparkles, CreditCard } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const PricingSection = () => {
@@ -43,9 +43,9 @@ const PricingSection = () => {
             {/* Card principal */}
             <div className="bg-white/90 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden border border-purple/20 transform hover:shadow-purple/20 hover:shadow-xl transition-all duration-500">
               
-              {/* Cabeçalho de preço com efeito de gradiente */}
+              {/* Cabeçalho de preço com efeito de gradiente - Redesenhado para destacar mais o preço */}
               <motion.div 
-                className="gradient-bg text-white py-10 px-6 text-center relative overflow-hidden"
+                className="gradient-bg text-white py-12 px-6 text-center relative overflow-hidden"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
@@ -55,7 +55,7 @@ const PricingSection = () => {
                 <div className="absolute -right-10 bottom-5 w-40 h-40 bg-white/10 rounded-full blur-2xl"></div>
                 
                 <motion.p 
-                  className="text-sm uppercase tracking-wider text-purple-light/80 font-medium mb-2"
+                  className="text-sm uppercase tracking-wider text-yellow-300 font-bold mb-2"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ delay: 0.2 }}
@@ -63,14 +63,27 @@ const PricingSection = () => {
                   Oferta especial de lançamento
                 </motion.p>
                 
+                {/* Preço riscado */}
+                <motion.div
+                  className="flex items-center justify-center mb-3"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  <span className="text-lg text-white/90 line-through decoration-red-500 decoration-2">
+                    de R$297,00
+                  </span>
+                </motion.div>
+                
                 <motion.div 
-                  className="flex items-center justify-center mb-3 group"
+                  className="flex flex-col items-center justify-center mb-3 group"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3, duration: 0.5 }}
                 >
-                  <span className="text-4xl md:text-6xl font-bold group-hover:scale-110 transition-transform duration-300 flex items-center gap-1">
-                    <span className="text-3xl font-normal">R$</span>6<span className="text-2xl">,70</span>
+                  <span className="text-2xl text-white/90">por apenas</span>
+                  <span className="text-5xl md:text-7xl font-bold group-hover:scale-110 transition-transform duration-300 flex items-center gap-1">
+                    <span className="text-3xl font-normal">R$</span>6<span className="text-3xl">,70</span>
                     <span className="text-xl font-light text-white/80 ml-1">/mês</span>
                   </span>
                 </motion.div>
@@ -133,16 +146,26 @@ const PricingSection = () => {
                   ))}
                 </div>
                 
-                {/* Botão com animação - Atualizado para abrir o link Eduzz */}
+                {/* Cartões de pagamento */}
+                <motion.div 
+                  className="flex flex-wrap justify-center gap-3 mb-8"
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6 }}
+                >
+                  <img src="/lovable-uploads/186e522f-9303-47bc-b2b7-4af8b3cb62c9.png" alt="Métodos de pagamento" className="h-8 object-contain" />
+                </motion.div>
+                
+                {/* Botão verde com animação - Atualizado para abrir o link Eduzz */}
                 <motion.div
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.98 }}
                   className="relative"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-light via-purple to-purple-dark blur-md rounded-lg opacity-80"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-green-600 blur-md rounded-lg opacity-80"></div>
                   <button 
                     onClick={handlePurchaseClick}
-                    className="relative bg-gradient-to-r from-purple-light via-purple to-purple-dark bg-size-200 animate-gradient-x text-white py-5 px-8 rounded-xl font-medium text-lg shadow-xl hover:shadow-purple/30 hover:shadow-lg transition-all duration-300 w-full flex items-center justify-center gap-3"
+                    className="relative bg-gradient-to-r from-green-400 to-green-600 bg-size-200 animate-gradient-x text-white py-5 px-8 rounded-xl font-medium text-lg shadow-xl hover:shadow-green-500/30 hover:shadow-lg transition-all duration-300 w-full flex items-center justify-center gap-3"
                   >
                     <span>Começar agora por 12x de R$6,70</span>
                     <motion.div
@@ -169,7 +192,7 @@ const PricingSection = () => {
                   viewport={{ once: true }}
                   transition={{ delay: 0.8 }}
                 >
-                  <Check className="w-4 h-4 text-purple" />
+                  <Check className="w-4 h-4 text-green-500" />
                   <span>Garantia de 7 dias ou seu dinheiro de volta</span>
                 </motion.div>
               </div>

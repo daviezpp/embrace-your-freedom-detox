@@ -114,7 +114,10 @@ const FinalCta = () => {
               }} whileTap={{
                 scale: 0.97
               }} className="pt-4">
-                  <Button className="w-full md:w-auto bg-gradient-to-r from-purple-light via-purple to-purple-dark bg-size-200 animate-gradient-x shadow-md final-cta-button text-sm md:text-base" onClick={handleButtonClick}>
+                  <Button 
+                    className="w-full md:w-auto bg-gradient-to-r from-green-400 to-green-600 bg-size-200 animate-gradient-x shadow-md hover:shadow-green-500/20 final-cta-button text-sm md:text-base" 
+                    onClick={handleButtonClick}
+                  >
                     Comece sua jornada agora
                     <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5" />
                   </Button>
