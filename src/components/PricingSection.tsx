@@ -2,6 +2,7 @@
 import React from 'react';
 import { ArrowRight, Gift, Check, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
+
 const PricingSection = () => {
   const handlePurchaseClick = () => {
     window.open('https://chk.eduzz.com/1675587?_gl=1*1xk4m5e*_ga*MTM0ODg4MDQ5MS4xNzQxMTk2MjQ0*_ga_VL84B9WQ6C*czE3NDY0NzQwNDQkbzQkZzAkdDE3NDY0NzQwNDQkajAkbDAkaDA', '_blank');
@@ -25,6 +26,7 @@ const PricingSection = () => {
     name: "Outros",
     imgSrc: "/payment-outros.png"
   }];
+
   return <section id="pricing" className="py-24 md:py-32 relative overflow-hidden bg-gradient-to-b from-purple/10 via-purple/20 to-purple/5">
       {/* Elementos decorativos */}
       <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTAwIDJhMiAyIDAgMCAxIDIgMnY5OGgyIDE5NnYyaC0yMDB2LTEwMmEyIDIgMCAwIDEgMi0yeiIgZmlsbD0iI2I2YWRkZSIgZmlsbC1vcGFjaXR5PSIwLjA1Ii8+PC9zdmc+')] opacity-40"></div>
@@ -128,12 +130,12 @@ const PricingSection = () => {
                   ou <span className="font-bold text-2xl">R$67,00</span> à vista
                 </motion.p>
                 
-                {/* Imagem dos métodos de pagamento */}
+                {/* Imagem dos métodos de pagamento - tamanho reduzido e opacidade 65% */}
                 <div className="flex justify-center mt-4">
                   <img 
                     src="/lovable-uploads/78a4d77b-3ac4-4279-8602-03c30ea538d2.png" 
                     alt="Métodos de pagamento aceitos" 
-                    className="max-w-full h-auto" 
+                    className="max-w-[80%] md:max-w-[70%] h-auto opacity-65" 
                   />
                 </div>
                 
