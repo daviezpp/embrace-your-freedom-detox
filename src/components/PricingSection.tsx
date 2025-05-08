@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ArrowRight, Gift, Check, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -127,9 +128,13 @@ const PricingSection = () => {
                   ou <span className="font-bold text-2xl">R$67,00</span> à vista
                 </motion.p>
                 
-                {/* Seção de ícones de pagamento com imagens editáveis */}
-                <div className="mt-4">
-                  
+                {/* Imagem dos métodos de pagamento */}
+                <div className="flex justify-center mt-4">
+                  <img 
+                    src="/lovable-uploads/78a4d77b-3ac4-4279-8602-03c30ea538d2.png" 
+                    alt="Métodos de pagamento aceitos" 
+                    className="max-w-full h-auto" 
+                  />
                 </div>
                 
                 <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-24 h-12 bg-white/10 blur-xl rounded-full"></div>
