@@ -1,6 +1,6 @@
 
-import React, { useState } from 'react';
-import { ArrowRight, Gift, Check, Sparkles, CreditCard } from 'lucide-react';
+import React from 'react';
+import { ArrowRight, Gift, Check, Sparkles, BitcoinIcon, CreditCard, DollarSign, Euro } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const PricingSection = () => {
@@ -8,24 +8,13 @@ const PricingSection = () => {
     window.open('https://chk.eduzz.com/1675587?_gl=1*1xk4m5e*_ga*MTM0ODg4MDQ5MS4xNzQxMTk2MjQ0*_ga_VL84B9WQ6C*czE3NDY0NzQwNDQkbzQkZzAkdDE3NDY0NzQwNDQkajAkbDAkaDA', '_blank');
   };
   
-  // State for payment icons (initially empty)
-  const [paymentIcons, setPaymentIcons] = useState<string[]>([]);
-  const [isEditing, setIsEditing] = useState(false);
-
-  // Function to add a new icon URL
-  const handleAddIcon = () => {
-    const iconUrl = prompt("Enter the URL of the icon image:");
-    if (iconUrl) {
-      setPaymentIcons([...paymentIcons, iconUrl]);
-    }
-  };
-
-  // Function to remove an icon
-  const handleRemoveIcon = (index: number) => {
-    const newIcons = [...paymentIcons];
-    newIcons.splice(index, 1);
-    setPaymentIcons(newIcons);
-  };
+  // Define the payment icons here - easy for developers to edit
+  const paymentIcons = [
+    { icon: <CreditCard className="h-6 w-6" />, name: "Cartão de Crédito" },
+    { icon: <DollarSign className="h-6 w-6" />, name: "Boleto" },
+    { icon: <BitcoinIcon className="h-6 w-6" />, name: "Crypto" },
+    { icon: <Euro className="h-6 w-6" />, name: "Outros" }
+  ];
   
   return <section id="pricing" className="py-24 md:py-32 relative overflow-hidden bg-gradient-to-b from-purple/10 via-purple/20 to-purple/5">
       {/* Elementos decorativos */}
@@ -130,51 +119,18 @@ const PricingSection = () => {
                   ou <span className="font-bold text-2xl">R$67,00</span> à vista
                 </motion.p>
                 
-                {/* Seção de ícones de pagamento editável */}
-                <div className="mt-4 relative">
-                  {/* Container editável para os ícones de pagamento */}
-                  <div className="max-w-[250px] min-h-[60px] mx-auto bg-gray-800/40 backdrop-blur rounded-lg p-3 flex flex-wrap justify-center items-center gap-2">
-                    {paymentIcons.length > 0 ? (
-                      paymentIcons.map((icon, index) => (
-                        <div key={index} className="relative group">
-                          <img 
-                            src={icon} 
-                            alt={`Payment method ${index + 1}`} 
-                            className="h-8 w-auto object-contain" 
-                          />
-                          {isEditing && (
-                            <button 
-                              onClick={() => handleRemoveIcon(index)}
-                              className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full h-5 w-5 flex items-center justify-center text-xs opacity-0 group-hover:opacity-100 transition-opacity"
-                            >
-                              ✕
-                            </button>
-                          )}
+                {/* Seção de ícones de pagamento pré-definidos */}
+                <div className="mt-4">
+                  <div className="max-w-[250px] mx-auto bg-gray-800/40 backdrop-blur rounded-lg p-3 flex flex-wrap justify-center items-center gap-4">
+                    {paymentIcons.map((item, index) => (
+                      <div key={index} className="flex flex-col items-center gap-1">
+                        <div className="bg-gray-700/50 p-2 rounded-lg">
+                          {item.icon}
                         </div>
-                      ))
-                    ) : (
-                      <span className={`text-white/70 text-sm ${!isEditing ? "block" : "hidden"}`}>
-                        Formas de pagamento
-                      </span>
-                    )}
-                    
-                    {isEditing && (
-                      <button 
-                        onClick={handleAddIcon}
-                        className="h-8 w-8 bg-purple/30 hover:bg-purple/50 rounded flex items-center justify-center text-white transition-colors"
-                      >
-                        +
-                      </button>
-                    )}
+                        <span className="text-xs text-white/70">{item.name}</span>
+                      </div>
+                    ))}
                   </div>
-                  
-                  {/* Botão de edição */}
-                  <button 
-                    onClick={() => setIsEditing(!isEditing)} 
-                    className="absolute -right-2 -top-2 bg-purple text-white text-xs px-2 py-1 rounded"
-                  >
-                    {isEditing ? "Concluir" : "Editar"}
-                  </button>
                 </div>
                 
                 <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-24 h-12 bg-white/10 blur-xl rounded-full"></div>
