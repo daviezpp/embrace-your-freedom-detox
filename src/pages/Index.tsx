@@ -7,6 +7,7 @@ import Testimonials from '@/components/Testimonials';
 import AboutDetox from '@/components/AboutDetox';
 import BenefitsList from '@/components/BenefitsList';
 import PricingSection from '@/components/PricingSection';
+import PricingSectionV2 from '@/components/PricingSectionV2';
 import GuaranteeSection from '@/components/GuaranteeSection';
 import FaqSection from '@/components/FaqSection';
 import FinalCta from '@/components/FinalCta';
@@ -43,6 +44,7 @@ const Index = () => {
       <AboutDetox />
       <BenefitsList />
       <PricingSection />
+      <PricingSectionV2 />
       <GuaranteeSection />
       <FaqSection />
       <FinalCta />
